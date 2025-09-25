@@ -1,0 +1,131 @@
+Third-Party Components and Libraries:
+
+1. Frontend Libraries:
+
+{
+  "react": "^19.0.0",
+  "react-dom": "^19.0.0",
+  "react-router-dom": "^7.1.5",
+  "react-icons": "^5.4.0",
+  "react-modal": "^3.16.3",
+  "framer-motion": "^12.4.2",
+  "axios": "^1.7.9",
+  "socket.io-client": "^4.8.1",
+  "styled-components": "^6.1.15"
+}
+
+
+2. Backend Libraries:
+
+{
+  "express": "^4.21.2",
+  "mongoose": "^8.10.0",
+  "bcryptjs": "^2.4.3",
+  "jsonwebtoken": "^9.0.2",
+  "cors": "^2.8.5",
+  "socket.io": "^4.8.1",
+  "nodemailer": "^6.10.0",
+  "dotenv": "^16.4.7"
+}
+
+
+
+
+Key Algorithms and Features:
+
+1. Authentication:
+JWT-based authentication system
+Password hashing using bcrypt
+OTP generation for password reset(nodemailer)
+
+2. Real-time Communication:
+Socket.IO for real-time notifications
+Service request status updates
+
+3. Service Matching:
+Provider matching based on:
+	Service type
+	Location
+	Availability (days/hours)
+	Time slot matching
+	Service area
+
+
+
+Functional Requirements:
+
+1. User Management:
+Service Provider Registration/Login
+Service Needer Registration/Login
+Admin Dashboard
+Profile Management
+Password Reset
+
+2. Service Management:
+Service Request Creation
+Service Provider Matching
+Real-time Status Updates
+Service History Tracking
+
+3. Admin Features:
+Provider Approval/Rejection
+User Management
+Service Monitoring
+System Configuration
+
+4. Notification System:
+Real-time Service Updates
+Request Status Changes
+Provider Response Alerts
+
+
+
+
+
+Existing System Components:
+
+1. Frontend Architecture:
+src/
+  ├── pages/
+  │   ├── admin/
+  │   ├── serviceNeeder/
+  │   └── serviceProvider/
+  ├── components/
+  ├── assets/
+  └── App.tsx
+
+
+2. Backend Architecture
+src/
+  ├── controllers/
+  ├── models/
+  ├── routes/
+  ├── middleware/
+  └── utils/
+
+3. Database Models
+ServiceNeeder
+RequestedServiceProvider
+ApprovedServiceProvider
+ServiceRequest
+Notification
+ServiceAccepted
+ServiceRejected
+
+4. API Endpoints
+
+"/"  
+"/user-type" 
+"/service-provider/register" 
+"/admin"
+"/admin/dashboard"
+"/admin/service-provider"
+"/service-provider/login"
+"/service-provider/dashboard"
+"/service-needer/home"
+"/book-service"
+"/service-needer/register"
+"/service-needer/login"
+"/forgot-password"
+"/reset-password/:token"
+"/service-provider/forgot-password"

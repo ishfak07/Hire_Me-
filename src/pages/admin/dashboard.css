@@ -1,0 +1,1565 @@
+:root {
+    --primary-color: #FFD700;
+    --secondary-color: #b39700;
+    --background-dark: #121212;
+    --background-light: rgba(18, 18, 18, 0.95);
+    --text-primary: #ffffff;
+    --text-secondary: #808080;
+    --border-color: rgba(255, 215, 0, 0.2);
+    --hover-color: rgba(255, 215, 0, 0.1);
+    --active-color: rgba(255, 215, 0, 0.2);
+    --danger-color: #ff4444;
+    --success-color: #00C851;
+    --warning-color: #FF8800;
+}
+
+.ad-dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styles */
+.ad-sidebar {
+    width: 260px;
+    background: var(--background-light);
+    border-right: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    /* Increased z-index */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.ad-sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.ad-sidebar.closed {
+    width: 80px;
+}
+
+.ad-sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.ad-sidebar-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    display: none;
+}
+
+.ad-sidebar-toggle:hover {
+    background: var(--hover-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.ad-logo-icon {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+}
+
+.ad-logo-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.ad-menu-category {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.ad-category-label {
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+}
+
+.ad-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1rem;
+    margin: 0.25rem 0;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.ad-menu-item:hover {
+    background: var(--hover-color);
+    color: var(--primary-color);
+}
+
+.ad-menu-item.active {
+    background: var(--active-color);
+    color: var(--primary-color);
+}
+
+.ad-menu-item svg {
+    font-size: 1.25rem;
+    min-width: 1.25rem;
+}
+
+.ad-sidebar-footer {
+    margin-top: auto;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.ad-user-profile-sidebar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+/* Main Content Styles */
+.ad-main-content {
+    flex: 1;
+    margin-left: 260px;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    width: calc(100% - 260px);
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.ad-sidebar.closed+.ad-main-content {
+    margin-left: 80px;
+    width: calc(100vw - 80px);
+}
+
+.ad-top-bar {
+    background: var(--background-light);
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px;
+    flex-wrap: nowrap;
+}
+
+.ad-header-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.ad-sidebar-toggle {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.ad-sidebar-toggle:hover {
+    transform: scale(1.1);
+}
+
+.ad-page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ad-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+}
+
+.ad-notification-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.ad-notification-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    font-size: 0.7rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.ad-user-profile:hover {
+    background: var(--hover-color);
+    border-color: var(--border-color);
+}
+
+.ad-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.ad-user-name {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.ad-user-role {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.ad-avatar {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+}
+
+.ad-logout-btn {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.ad-logout-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Dashboard Content Styles */
+.ad-dashboard-content {
+    padding: 0 2rem 2rem 2rem;
+    background: var(--background-dark);
+    min-height: calc(100vh - 80px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ad-welcome-banner {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid var(--primary-color);
+}
+
+.ad-welcome-text h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.ad-welcome-text p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.ad-date-display {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.ad-stats-grid {
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.ad-stat-card {
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ad-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.ad-stat-icon {
+    background: var(--hover-color);
+    color: var(--primary-color);
+    padding: 1.2rem;
+    border-radius: 14px;
+    font-size: 1.75rem;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+}
+
+.ad-stat-info {
+    flex: 1;
+}
+
+.ad-stat-info h3 {
+    color: var(--text-secondary);
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.ad-stat-number {
+    color: var(--text-primary);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.ad-stat-trend {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.ad-stat-trend.positive {
+    background: rgba(0, 200, 81, 0.1);
+    color: var(--success-color);
+}
+
+.ad-stat-trend.negative {
+    background: rgba(255, 68, 68, 0.1);
+    color: var(--danger-color);
+}
+
+.ad-dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ad-content-section {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ad-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ad-section-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.ad-more-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.ad-more-btn:hover {
+    background: var(--hover-color);
+    color: var(--primary-color);
+}
+
+.ad-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ad-activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+}
+
+.ad-activity-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ad-activity-icon {
+    padding: 0.75rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.ad-activity-icon.success {
+    background: rgba(0, 200, 81, 0.1);
+    color: var(--success-color);
+}
+
+.ad-activity-icon.warning {
+    background: rgba(255, 136, 0, 0.1);
+    color: var(--warning-color);
+}
+
+.ad-activity-icon.info {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+}
+
+.ad-activity-details {
+    flex: 1;
+}
+
+.ad-activity-text {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.ad-activity-time {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.ad-loading-spinner-small {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top: 3px solid var(--primary-color);
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+.ad-error-message-small {
+    color: var(--danger-color);
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.ad-action-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.ad-action-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ad-action-button:hover {
+    background: var(--hover-color);
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.ad-action-button svg {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+}
+
+.ad-action-button span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.ad-mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+}
+
+.ad-mobile-menu-toggle:hover,
+.ad-mobile-menu-toggle:focus {
+    background-color: var(--hover-color);
+    outline: none;
+}
+
+.ad-mobile-menu-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Logout Confirmation Modal */
+.ad-logout-confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.ad-logout-confirm-dialog {
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    animation: scaleIn 0.2s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.ad-logout-confirm-dialog h3 {
+    font-size: 1.3rem;
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.ad-logout-confirm-dialog p {
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.ad-logout-confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.ad-logout-cancel-btn,
+.ad-logout-confirm-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ad-logout-cancel-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.ad-logout-cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ad-logout-confirm-btn {
+    background: var(--primary-color);
+    color: var(--background-dark);
+    border: none;
+}
+
+.ad-logout-confirm-btn:hover {
+    background: var(--secondary-color);
+}
+
+@media (max-width: 1200px) {
+    .ad-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ad-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 1043px) {
+
+    /* Hide sidebar by default below 1043px */
+    .ad-sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: none;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .ad-sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Show the mobile menu toggle at this breakpoint */
+    .ad-mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: rgba(255, 215, 0, 0.1);
+        transition: all 0.2s ease;
+    }
+
+    .ad-mobile-menu-toggle:hover {
+        background: rgba(255, 215, 0, 0.2);
+    }
+
+    .ad-page-title {
+        font-size: 1.25rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: calc(100vw - 200px);
+        flex: 1;
+    }
+
+    .ad-header-right {
+        flex-shrink: 0;
+        gap: 0.75rem;
+    }
+
+    .ad-header-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .ad-top-bar {
+        margin: 0;
+        border-radius: 0;
+        padding: 1rem 1.5rem;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    /* Fix dashboard content padding */
+    .ad-dashboard-content {
+        padding: 1.5rem;
+    }
+
+    /* Reset content area to full width when sidebar is hidden */
+    .ad-main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Show overlay when sidebar is open */
+    .ad-sidebar-overlay.active {
+        display: block;
+    }
+
+    /* Improve stats grid for tablets */
+    .ad-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.25rem;
+    }
+
+    /* Improve dashboard grid layout */
+    .ad-dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ad-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .ad-welcome-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .ad-date-display {
+        align-self: flex-start;
+        font-size: 0.85rem;
+    }
+
+    .ad-dashboard-content {
+        padding: 1.25rem;
+    }
+
+    .ad-stat-card {
+        padding: 1.25rem;
+        gap: 1.25rem;
+    }
+
+    .ad-stat-icon {
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .ad-stat-number {
+        font-size: 1.6rem;
+    }
+
+    .ad-content-section {
+        padding: 1.25rem;
+    }
+
+    .ad-action-buttons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .ad-action-button {
+        padding: 1.25rem;
+        gap: 0.5rem;
+    }
+
+    .ad-action-button svg {
+        font-size: 1.5rem;
+    }
+
+    .ad-action-button span {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ad-mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: rgba(255, 215, 0, 0.1);
+    }
+
+    .ad-header-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .ad-sidebar {
+        transform: translateX(-100%);
+        width: 85%;
+        max-width: 320px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: none;
+        height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ad-sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .ad-sidebar-toggle {
+        display: block;
+    }
+
+    .ad-sidebar-overlay.active {
+        display: block;
+    }
+
+    .ad-main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .ad-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .ad-top-bar {
+        margin: 0;
+        border-radius: 0;
+        padding: 1rem;
+        flex-wrap: nowrap;
+    }
+
+    .ad-dashboard-content {
+        padding: 1rem;
+    }
+
+    .ad-action-buttons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .ad-page-title {
+        font-size: 1.2rem;
+        max-width: calc(100vw - 150px);
+    }
+
+    .ad-header-right {
+        gap: 0.5rem;
+    }
+
+    .ad-user-profile {
+        padding: 0.5rem;
+    }
+
+    .ad-user-info {
+        display: none;
+    }
+
+    .ad-notification-btn,
+    .ad-logout-btn {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ad-welcome-banner {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .ad-welcome-text h2 {
+        font-size: 1.3rem;
+    }
+
+    .ad-welcome-text p {
+        font-size: 0.9rem;
+    }
+
+    .ad-stat-card {
+        padding: 1rem;
+        gap: 1rem;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .ad-stat-icon {
+        padding: 0.875rem;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+    }
+
+    .ad-stat-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .ad-stat-info h3 {
+        font-size: 0.85rem;
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+    }
+
+    .ad-stat-number {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .ad-content-section {
+        padding: 1rem;
+    }
+
+    .ad-section-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .ad-activity-item {
+        padding: 0.875rem;
+        gap: 0.875rem;
+    }
+
+    .ad-activity-icon {
+        padding: 0.6rem;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+
+    .ad-activity-details {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .ad-activity-text {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .ad-activity-time {
+        font-size: 0.75rem;
+    }
+}
+
+/* Fix for Android Chrome bottom bar issues */
+@media (max-height: 600px) {
+    .ad-sidebar {
+        height: 100%;
+        overflow-y: auto;
+        padding-bottom: 60px;
+        /* Add space for Android Chrome's bottom bar */
+    }
+}
+
+/* Make sidebar scrollable on small height screens */
+@media (max-height: 500px) {
+    .ad-sidebar {
+        overflow-y: auto;
+    }
+
+    .ad-sidebar-footer {
+        position: relative;
+    }
+}
+
+/* Improve touch area for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+
+    .ad-menu-item,
+    .ad-sidebar-toggle,
+    .ad-mobile-menu-toggle,
+    .ad-logout-btn {
+        padding: 0.75rem;
+        min-height: 44px;
+        /* Apple's recommended minimum touch target size */
+    }
+}
+
+@media (max-width: 480px) {
+    .ad-logout-confirm-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .ad-logout-cancel-btn,
+    .ad-logout-confirm-btn {
+        padding: 0.875rem;
+        width: 100%;
+    }
+
+    .ad-sidebar {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .ad-menu-item {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .ad-sidebar-toggle {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .ad-sidebar-header {
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .ad-logo-text {
+        font-size: 1.2rem;
+    }
+
+    .ad-top-bar {
+        padding: 0.875rem;
+        gap: 0.5rem;
+    }
+
+    .ad-dashboard-content {
+        padding: 0.875rem;
+    }
+
+    .ad-header-right {
+        gap: 0.25rem;
+    }
+
+    .ad-page-title {
+        font-size: 1.1rem;
+        max-width: calc(100vw - 120px);
+    }
+
+    .ad-welcome-banner {
+        padding: 0.875rem;
+        margin-bottom: 1.25rem;
+        gap: 0.75rem;
+    }
+
+    .ad-welcome-text h2 {
+        font-size: 1.15rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .ad-welcome-text p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .ad-date-display {
+        font-size: 0.8rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .ad-stats-grid {
+        gap: 0.875rem;
+    }
+
+    .ad-stat-card {
+        padding: 0.875rem;
+        gap: 0.875rem;
+        border-radius: 12px;
+    }
+
+    .ad-stat-icon {
+        padding: 0.75rem;
+        font-size: 1.25rem;
+        border-radius: 10px;
+    }
+
+    .ad-stat-info h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .ad-stat-number {
+        font-size: 1.4rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .ad-stat-trend {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .ad-dashboard-grid {
+        gap: 1rem;
+    }
+
+    .ad-action-buttons-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .ad-action-button {
+        padding: 1rem;
+        gap: 0.5rem;
+        border-radius: 10px;
+    }
+
+    .ad-action-button svg {
+        font-size: 1.4rem;
+    }
+
+    .ad-action-button span {
+        font-size: 0.85rem;
+    }
+
+    .ad-content-section {
+        padding: 0.875rem;
+        border-radius: 16px;
+    }
+
+    .ad-section-header {
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .ad-section-header h2 {
+        font-size: 1rem;
+    }
+
+    .ad-activity-item {
+        padding: 0.75rem;
+        gap: 0.75rem;
+        border-radius: 10px;
+    }
+
+    .ad-activity-icon {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border-radius: 8px;
+    }
+
+    .ad-activity-text {
+        font-size: 0.85rem;
+        line-height: 1.2;
+    }
+
+    .ad-activity-time {
+        font-size: 0.7rem;
+    }
+
+    .ad-mobile-menu-toggle {
+        width: 36px;
+        height: 36px;
+        margin-right: 0.25rem;
+    }
+
+    .ad-notification-btn,
+    .ad-logout-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+
+    .ad-logout-confirm-dialog {
+        padding: 1.25rem;
+        margin: 1rem;
+    }
+
+    .ad-logout-confirm-dialog h3 {
+        font-size: 1.1rem;
+    }
+
+    .ad-logout-confirm-dialog p {
+        font-size: 0.9rem;
+    }
+}
+
+/* No activities state */
+.ad-no-activities {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-secondary);
+}
+
+.ad-no-activities p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Add support for very small devices */
+@media (max-width: 360px) {
+    .ad-top-bar {
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .ad-header-left {
+        gap: 0.5rem;
+        min-width: 0;
+        flex: 1;
+    }
+
+    .ad-header-right {
+        gap: 0.25rem;
+        flex-shrink: 0;
+    }
+
+    .ad-page-title {
+        font-size: 1rem;
+        max-width: calc(100vw - 100px);
+    }
+
+    .ad-mobile-menu-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .ad-notification-btn,
+    .ad-logout-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .ad-dashboard-content {
+        padding: 0.75rem;
+    }
+
+    .ad-welcome-banner {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .ad-welcome-text h2 {
+        font-size: 1rem;
+    }
+
+    .ad-welcome-text p {
+        font-size: 0.8rem;
+    }
+
+    .ad-date-display {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .ad-stats-grid {
+        gap: 0.75rem;
+    }
+
+    .ad-stat-card {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+
+    .ad-stat-icon {
+        padding: 0.625rem;
+        font-size: 1.1rem;
+    }
+
+    .ad-stat-info h3 {
+        font-size: 0.75rem;
+    }
+
+    .ad-stat-number {
+        font-size: 1.25rem;
+    }
+
+    .ad-stat-trend {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+    .ad-activity-icon {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .ad-activity-text {
+        font-size: 0.8rem;
+    }
+
+    .ad-activity-time {
+        font-size: 0.65rem;
+    }
+
+    .ad-content-section {
+        padding: 0.75rem;
+    }
+
+    .ad-section-header h2 {
+        font-size: 0.95rem;
+    }
+
+    .ad-action-button {
+        padding: 0.875rem;
+        gap: 0.375rem;
+    }
+
+    .ad-action-button svg {
+        font-size: 1.2rem;
+    }
+
+    .ad-action-button span {
+        font-size: 0.8rem;
+    }
+
+    .ad-sidebar {
+        width: 95%;
+        max-width: 280px;
+    }
+
+    .ad-menu-item {
+        padding: 0.875rem;
+        font-size: 0.9rem;
+    }
+
+    .ad-sidebar-header {
+        padding: 0.875rem 1.25rem;
+    }
+
+    .ad-logo-text {
+        font-size: 1.1rem;
+    }
+
+    .ad-logout-confirm-dialog {
+        margin: 0.75rem;
+        padding: 1rem;
+    }
+
+    .ad-logout-confirm-dialog h3 {
+        font-size: 1rem;
+    }
+
+    .ad-logout-confirm-dialog p {
+        font-size: 0.85rem;
+    }
+
+    .ad-logout-cancel-btn,
+    .ad-logout-confirm-btn {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Add support for landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .ad-sidebar {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ad-sidebar-footer {
+        padding: 0.75rem;
+    }
+
+    .ad-menu-item {
+        padding: 0.5rem 1rem;
+    }
+
+    .ad-activity-list {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+}
+
+/* Support for larger screens */
+@media (min-width: 1600px) {
+    .ad-dashboard-content {
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+
+    .ad-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Add hover effect only on devices that support hover */
+@media (hover: hover) {
+    .ad-menu-item:hover {
+        background: var(--hover-color);
+        color: var(--primary-color);
+    }
+
+    .ad-stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15);
+        border-color: var(--primary-color);
+    }
+
+    .ad-action-button:hover {
+        background: var(--hover-color);
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+    }
+}
+
+/* Add touch-friendly styles for mobile */
+@media (hover: none) and (pointer: coarse) {
+
+    .ad-menu-item,
+    .ad-stat-card,
+    .ad-action-button {
+        transition: all 0.15s ease;
+        -webkit-tap-highlight-color: rgba(255, 215, 0, 0.1);
+    }
+
+    .ad-menu-item:active {
+        background: var(--active-color);
+        color: var(--primary-color);
+        transform: scale(0.98);
+    }
+
+    .ad-action-button:active {
+        background: var(--hover-color);
+        border-color: var(--primary-color);
+        transform: scale(0.98);
+    }
+
+    .ad-mobile-menu-toggle:active,
+    .ad-logout-btn:active,
+    .ad-notification-btn:active {
+        transform: scale(0.95);
+        background: var(--hover-color);
+    }
+}
+
+/* Add animation for spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}

@@ -1,0 +1,715 @@
+/* Analytics Page Styles */
+.ana-dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Loading and Error States */
+.ana-loading-container,
+.ana-error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #121212;
+    color: #fff;
+}
+
+.ana-loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #333;
+    border-top: 3px solid #FFD700;
+    border-radius: 50%;
+    animation: ana-spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes ana-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.ana-error-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ana-error-container button:hover {
+    background-color: #e6c200;
+}
+
+/* Sidebar Styles */
+.ana-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 280px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-right: 1px solid #333;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.ana-sidebar.closed {
+    transform: translateX(-100%);
+}
+
+.ana-sidebar-header {
+    padding: 30px 25px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ana-logo-icon {
+    color: #FFD700;
+    font-size: 32px;
+    margin-right: 15px;
+}
+
+.ana-logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.ana-sidebar-toggle {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.ana-sidebar-menu {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.ana-back-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 25px;
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.ana-back-btn:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+.ana-back-btn svg {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.ana-sidebar-footer {
+    padding: 25px;
+    border-top: 1px solid #333;
+}
+
+.ana-user-profile-sidebar {
+    display: flex;
+    align-items: center;
+}
+
+.ana-avatar {
+    font-size: 40px;
+    color: #FFD700;
+    margin-right: 15px;
+}
+
+.ana-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.ana-user-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.ana-user-role {
+    font-size: 14px;
+    color: #999;
+}
+
+/* Main Content */
+.ana-main-content {
+    flex: 1;
+    margin-left: 280px;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+.ana-main-content.sidebar-closed {
+    margin-left: 0;
+}
+
+/* Top Bar */
+.ana-top-bar {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-bottom: 1px solid #333;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.ana-header-left {
+    display: flex;
+    align-items: center;
+}
+
+.ana-mobile-menu-toggle {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    display: none;
+}
+
+.ana-page-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.ana-title-icon {
+    color: #FFD700;
+    margin-right: 15px;
+    font-size: 32px;
+}
+
+.ana-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ana-view-mode {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: rgba(255, 215, 0, 0.1);
+    border: 1px solid #FFD700;
+    border-radius: 20px;
+    color: #FFD700;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ana-logout-btn {
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
+    border: none;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ana-logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}
+
+/* Dashboard Content */
+.ana-dashboard-content {
+    padding: 30px;
+}
+
+/* Stats Overview */
+.ana-stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.ana-stat-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ana-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+}
+
+.ana-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    border-color: #FFD700;
+}
+
+.ana-stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+.ana-stat-icon.revenue {
+    background: linear-gradient(135deg, #00C851 0%, #00A347 100%);
+    color: white;
+}
+
+.ana-stat-icon.services {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #000;
+}
+
+.ana-stat-icon.users {
+    background: linear-gradient(135deg, #4285F4 0%, #3367D6 100%);
+    color: white;
+}
+
+.ana-stat-icon.time {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF5252 100%);
+    color: white;
+}
+
+.ana-stat-info {
+    flex: 1;
+}
+
+.ana-stat-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ana-stat-number {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.ana-trend {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ana-trend.positive {
+    color: #00C851;
+}
+
+.ana-trend.negative {
+    color: #FF4444;
+}
+
+.ana-trend svg {
+    font-size: 14px;
+}
+
+/* Charts Grid */
+.ana-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 25px;
+}
+
+.ana-chart-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    grid-column: span 6;
+    min-height: 400px;
+    /* Ensure minimum height for charts */
+}
+
+.ana-chart-card.large {
+    grid-column: span 12;
+    min-height: 400px;
+}
+
+.ana-chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+    border-color: #FFD700;
+}
+
+.ana-chart-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.ana-chart-header h3 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.ana-chart-header p {
+    margin: 0;
+    font-size: 14px;
+    color: #999;
+}
+
+/* Logout Confirmation Modal */
+.ana-logout-confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.ana-logout-confirm-dialog {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+    border: 1px solid #FFD700;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.ana-logout-confirm-dialog h3 {
+    margin: 0 0 15px 0;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.ana-logout-confirm-dialog p {
+    margin: 0 0 25px 0;
+    color: #ccc;
+    font-size: 16px;
+}
+
+.ana-logout-confirm-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.ana-logout-cancel-btn {
+    padding: 12px 24px;
+    border: 1px solid #ccc;
+    background: transparent;
+    color: #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.ana-logout-cancel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.ana-logout-confirm-btn {
+    padding: 12px 24px;
+    border: none;
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.ana-logout-confirm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}
+
+/* Sidebar Overlay for Mobile */
+.ana-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.ana-sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 1043px) {
+    .ana-main-content {
+        margin-left: 0;
+    }
+
+    .ana-sidebar-toggle {
+        display: block;
+    }
+
+    .ana-mobile-menu-toggle {
+        display: block;
+    }
+
+    .ana-stats-overview {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .ana-chart-card {
+        grid-column: span 12;
+    }
+
+    .ana-chart-card.large {
+        grid-column: span 12;
+    }
+
+    .ana-dashboard-content {
+        padding: 20px;
+    }
+
+    .ana-top-bar {
+        padding: 15px 20px;
+    }
+
+    .ana-page-title {
+        font-size: 24px;
+    }
+
+    .ana-title-icon {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ana-stats-overview {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .ana-stat-card {
+        padding: 20px;
+    }
+
+    .ana-stat-number {
+        font-size: 28px;
+    }
+
+    .ana-chart-card {
+        padding: 20px;
+    }
+
+    .ana-dashboard-content {
+        padding: 15px;
+    }
+
+    .ana-page-title {
+        font-size: 20px;
+    }
+
+    .ana-title-icon {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .ana-header-right {
+        gap: 10px;
+    }
+
+    .ana-view-mode {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .ana-logout-btn {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ana-stat-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .ana-stat-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .ana-chart-card {
+        padding: 15px;
+    }
+
+    .ana-dashboard-content {
+        padding: 10px;
+    }
+
+    .ana-top-bar {
+        padding: 10px 15px;
+    }
+
+    .ana-header-right {
+        gap: 8px;
+    }
+
+    .ana-view-mode span {
+        display: none;
+    }
+}
+
+/* Chart Responsive Overrides */
+.recharts-wrapper {
+    width: 100% !important;
+    height: 300px !important;
+    background: transparent !important;
+}
+
+.recharts-surface {
+    overflow: visible;
+    background: transparent !important;
+}
+
+/* Ensure all chart elements are visible with proper colors */
+.ana-chart-card .recharts-wrapper .recharts-surface {
+    background: transparent !important;
+}
+
+/* Fix for chart grid lines */
+.recharts-cartesian-grid line {
+    stroke: #333 !important;
+    stroke-opacity: 1 !important;
+}
+
+/* Fix for axis lines */
+.recharts-cartesian-axis-line {
+    stroke: #666 !important;
+    stroke-width: 1 !important;
+}
+
+/* Ensure chart content is above background */
+.ana-chart-card>div {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure chart containers have minimum height and proper visibility */
+.ana-chart-card .recharts-responsive-container {
+    min-height: 300px !important;
+    height: 300px !important;
+    z-index: 1;
+    position: relative;
+}
+
+/* Ensure recharts elements are visible */
+.recharts-wrapper svg {
+    background: transparent !important;
+    overflow: visible !important;
+}
+
+/* Fix chart text visibility */
+.recharts-text {
+    fill: #ffffff !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+    fill: #cccccc !important;
+}
+
+.recharts-legend-item-text {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FFD700;
+}

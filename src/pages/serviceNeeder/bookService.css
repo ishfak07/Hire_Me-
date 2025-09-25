@@ -1,0 +1,971 @@
+/* Book Service Page Styles with SN-BS prefix */
+.SN-BS-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.SN-BS-nav-left {
+  position: relative;
+}
+
+.SN-BS-notification-icon {
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.SN-BS-notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4444;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.SN-BS-nav-center h1 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.SN-BS-nav-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.SN-BS-track-service-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #4CAF50;
+  color: white;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.SN-BS-track-service-btn:hover {
+  background-color: #45a049;
+}
+
+.SN-BS-logout-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #f44336;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.SN-BS-logout-btn:hover {
+  background-color: #da190b;
+}
+
+.SN-BS-notification-wrapper {
+  position: relative;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.SN-BS-notifications-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 300px;
+  max-height: 400px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1002;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.SN-BS-notifications-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.SN-BS-notifications-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.SN-BS-notifications-list {
+  padding: 0;
+}
+
+.SN-BS-notification-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.SN-BS-notification-item:hover {
+  background-color: #f8f9fa;
+}
+
+.SN-BS-notification-item.SN-BS-unread {
+  background-color: #f0f7ff;
+}
+
+.SN-BS-notification-message {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.SN-BS-notification-time {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.SN-BS-provider-contact {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  color: #323933;
+  font-weight: 400;
+}
+
+.SN-BS-provider-contact p {
+  margin: 3px 0;
+}
+
+.SN-BS-no-notifications {
+  padding: 16px;
+  text-align: center;
+  color: #666;
+}
+
+.SN-BS-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.SN-BS-confirm-button,
+.SN-BS-cancel-button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.SN-BS-confirm-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.SN-BS-confirm-button:hover {
+  background-color: #da190b;
+}
+
+.SN-BS-cancel-button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.SN-BS-cancel-button:hover {
+  background-color: #d5d5d5;
+}
+
+.SN-BS-book-service {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.SN-BS-booking-progress {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  padding: 0 1rem;
+  gap: 15px;
+  z-index: 1;
+}
+
+.SN-BS-booking-progress::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  right: 50px;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+
+.SN-BS-step-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 215, 0, 0.05);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  animation: SN-BS-stepTransition 0.7s ease-out forwards;
+}
+
+@keyframes SN-BS-stepTransition {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.SN-BS-progress-step {
+  position: relative;
+  padding: 1rem;
+  border-radius: 4px;
+  background: #f5f5f5;
+  color: #666;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+  transform-origin: center;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+}
+
+.SN-BS-progress-step::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: #FFD700;
+  transition: width 0.4s ease;
+}
+
+.SN-BS-progress-step::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #FFD700;
+  border-radius: 50%;
+  margin-left: 8px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.SN-BS-progress-step.SN-BS-active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.SN-BS-progress-step.SN-BS-active {
+  background: #000000;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #FFD700;
+  font-weight: 500;
+}
+
+.SN-BS-progress-step.SN-BS-active::before {
+  width: 100%;
+  transition: width 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+}
+
+.SN-BS-progress-step.SN-BS-completed {
+  background: #222;
+  color: #FFD700;
+}
+
+.SN-BS-service-selection {
+  margin: 2rem 0;
+}
+
+.SN-BS-selection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.SN-BS-selection-header h2 {
+  margin: 0;
+  color:whitesmoke;
+  font-size: 1.8rem;
+}
+
+.SN-BS-view-all-providers-btn {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.SN-BS-view-all-providers-btn:hover {
+  background-color: #F4C430;
+}
+
+.SN-BS-service-selection,
+.SN-BS-booking-form,
+.SN-BS-booking-confirmation {
+  animation: SN-BS-fadeSlideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  transform-origin: center;
+}
+
+/* Define the fade-slide-in animation */
+@keyframes SN-BS-fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.SN-BS-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.SN-BS-service-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+.SN-BS-service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(0, 0, 0, 0.95));
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  border: 1px solid var(--accent-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Updated location dropdown styling */
+.SN-BS-location-dropdown {
+  position: absolute;
+  width: 100%;
+  /* Make it full width of the parent */
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  top: 100%;
+  /* Position it directly below the input */
+  left: 0;
+  /* Align to the left edge of the form group */
+  margin-top: 5px;
+  /* Small gap between input and dropdown */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d1d1 #f5f5f5;
+}
+
+.SN-BS-location-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.SN-BS-location-dropdown::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.SN-BS-location-dropdown::-webkit-scrollbar-thumb {
+  background-color: #d1d1d1;
+  border-radius: 4px;
+  border: 2px solid #f5f5f5;
+}
+
+.SN-BS-location-option {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+  font-size: 14px;
+}
+
+.SN-BS-location-option:last-child {
+  border-bottom: none;
+}
+
+.SN-BS-location-option:hover {
+  background-color: #f8f9fa;
+  padding-left: 20px;
+}
+
+.SN-BS-location-option.SN-BS-highlighted {
+  background-color: #f0f7ff;
+  color: #0066cc;
+}
+
+/* Improve the input field styling to match */
+.SN-BS-form-group input[name="location"] {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.SN-BS-form-group input[name="location"]:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+}
+
+/* Add a custom dropdown indicator */
+.SN-BS-location-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.SN-BS-location-input-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #666;
+  pointer-events: none;
+}
+
+.SN-BS-form-group input[name="location"]:focus+.SN-BS-location-input-wrapper::after {
+  border-top-color: #FFD700;
+}
+
+.SN-BS-service-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.SN-BS-service-card p {
+  color: #666;
+  margin: 0;
+}
+
+.SN-BS-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.SN-BS-booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.SN-BS-form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.SN-BS-form-group input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.SN-BS-form-group select {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.SN-BS-form-group select:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.SN-BS-form-group select option {
+  padding: 0.5rem;
+}
+
+.SN-BS-time-range-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.SN-BS-form-group svg {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.SN-BS-next-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 2rem auto;
+  padding: 0.9rem 2rem;
+  background: #FFD700;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  min-width: 180px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.SN-BS-next-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid #000;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.SN-BS-next-button:hover::after {
+  opacity: 1;
+  right: 15px;
+}
+
+.SN-BS-next-button:hover {
+  padding-right: 2.5rem;
+  background: #F4C430;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.SN-BS-next-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.SN-BS-booking-confirmation {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.SN-BS-error-message {
+  background-color: #ffe6e6;
+  color: #d63031;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  text-align: center;
+  border: 1px solid #ff9999;
+}
+
+.SN-BS-booking-summary {
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background-color: #6f6f6f;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f0f0f0;
+  margin: 2rem auto;
+  max-width: 90%;
+}
+
+.SN-BS-booking-summary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #FFD700;
+  border-radius: 4px 0 0 4px;
+}
+
+.SN-BS-booking-summary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: SN-BS-shimmer 2s infinite;
+}
+
+.SN-BS-booking-summary h3 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.SN-BS-booking-summary h3::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: #FFD700;
+}
+
+@keyframes SN-BS-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.SN-BS-summary-details {
+  margin-top: 1.5rem;
+  color: #444;
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.SN-BS-summary-details p {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.SN-BS-summary-details strong {
+  color: #000000;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  min-width: 110px;
+  display: inline-block;
+}
+
+.SN-BS-providers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.SN-BS-provider-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.SN-BS-provider-card h3 {
+  color: #000000;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.SN-BS-provider-details {
+  margin: 1rem 0;
+  color: #444;
+}
+
+.SN-BS-provider-details p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.SN-BS-provider-details strong {
+  color: #000000;
+  font-weight: 600;
+}
+
+.SN-BS-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+.SN-BS-star-filled {
+  color: #FFD700;
+}
+
+.SN-BS-star-empty {
+  color: #ddd;
+}
+
+.SN-BS-new-provider {
+  color: #666;
+  font-style: italic;
+}
+
+.SN-BS-provider-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.SN-BS-select-provider-button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #FFD700;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.SN-BS-select-provider-button:hover {
+  background: #F4C430;
+}
+
+.SN-BS-no-providers {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  color: #000;
+}
+
+.SN-BS-back-button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.SN-BS-back-button:hover {
+  background: #555;
+}
+
+.SN-BS-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.SN-BS-modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: SN-BS-fadeIn 0.3s ease-in-out;
+}
+
+.SN-BS-modal-content h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.SN-BS-modal-content p {
+  margin-bottom: 1.5rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.SN-BS-modal-close-button {
+  padding: 0.8rem 2rem;
+  background: #FFD700;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.SN-BS-modal-close-button:hover {
+  background: #F4C430;
+}
+
+.SN-BS-loading-spinner {
+  animation: SN-BS-spin 1s linear infinite;
+  font-size: 3rem;
+  color: #FFD700;
+  margin: 2rem auto;
+  display: block;
+}
+
+@keyframes SN-BS-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes SN-BS-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.SN-BS-success-message {
+  color: #28a745;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.SN-BS-countdown-timer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0.5rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .SN-BS-booking-progress {
+    gap: 10px;
+    /* Smaller gap on medium screens */
+  }
+
+  .SN-BS-progress-step {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .SN-BS-progress-step.SN-BS-active {
+    transform: scale(1.03);
+  }
+
+  .SN-BS-booking-progress::before {
+    left: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .SN-BS-booking-progress {
+    gap: 8px;
+    /* Even smaller gap on very small screens */
+  }
+
+  .SN-BS-progress-step {
+    padding: 0.7rem 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .SN-BS-progress-step::after {
+    margin-left: 4px;
+    width: 6px;
+    height: 6px;
+  }
+
+  .SN-BS-booking-progress::before {
+    display: none;
+  }
+}

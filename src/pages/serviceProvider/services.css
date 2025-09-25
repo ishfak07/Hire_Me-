@@ -1,0 +1,409 @@
+.sp-services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+.sp-services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #FFD700;
+}
+
+.sp-services-header h1 {
+    font-size: 28px;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.sp-back-button {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #FFD700;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sp-back-button:hover {
+    background: #FFD700;
+    color: #1a1a1a;
+    transform: scale(1.05);
+}
+
+.sp-no-services {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sp-no-services p {
+    font-size: 18px;
+    color: #666;
+}
+
+.sp-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.sp-service-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sp-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.sp-service-header {
+    padding: 1rem 1.5rem;
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #FFD700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sp-service-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #FFD700;
+    font-weight: 600;
+}
+
+.sp-status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.sp-status-badge.accepted {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.5);
+}
+
+.sp-status-badge.completed {
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+    border: 1px solid rgba(33, 150, 243, 0.5);
+}
+
+.sp-service-info {
+    padding: 1.5rem;
+}
+
+.sp-info-group {
+    margin-bottom: 1.5rem;
+}
+
+.sp-info-group h4 {
+    font-size: 16px;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.sp-info-group p {
+    margin: 0.8rem 0;
+    font-size: 14px;
+    color: #444;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sp-info-group p strong {
+    color: #1a1a1a;
+    min-width: 80px;
+    display: inline-block;
+}
+
+.sp-service-footer {
+    padding: 1rem 1.5rem;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sp-service-footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.sp-complete-button {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #FFD700;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sp-complete-button:hover {
+    background: #FFD700;
+    color: #1a1a1a;
+    transform: scale(1.05);
+}
+
+.sp-loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: #f5f5f5;
+}
+
+.sp-loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 215, 0, 0.1);
+    border-top-color: #FFD700;
+    border-radius: 50%;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sp-loading-container p {
+    color: #1a1a1a;
+    font-size: 16px;
+}
+
+.sp-retry-button {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #FFD700;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sp-retry-button:hover {
+    background: #FFD700;
+    color: #1a1a1a;
+    transform: scale(1.05);
+}
+
+.sp-error-container {
+    padding: 1.5rem;
+    background-color: rgba(244, 67, 54, 0.05);
+    border: 1px solid rgba(244, 67, 54, 0.2);
+    border-radius: 10px;
+    color: #f44336;
+    margin-top: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sp-error-container h3 {
+    color: #f44336;
+    margin-bottom: 1rem;
+}
+
+.sp-service-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sp-start-service-button {
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sp-start-service-button.active {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.sp-start-service-button.disabled {
+    background-color: #e0e0e0;
+    color: #666;
+    border: none;
+    cursor: not-allowed;
+}
+
+.sp-start-service-button.active:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.sp-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    z-index: 1000;
+    animation: fadeInOut 3s ease-in-out;
+    text-align: center;
+    max-width: 90%;
+}
+
+.otp-verify-modal {
+  max-width: 400px;
+}
+
+.otp-verify-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.otp-input-container {
+  margin: 20px 0;
+}
+
+.otp-input {
+  width: 120px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 5px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.otp-error {
+  color: #d9534f;
+  margin: 10px 0;
+}
+
+.otp-modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.verify-otp-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.verify-otp-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.verify-otp-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments for the header actions */
+@media (max-width: 768px) {
+    .sp-service-header-actions {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+
+    .sp-service-header {
+        flex-wrap: wrap;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sp-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sp-services-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .sp-service-footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .sp-service-footer p {
+        text-align: center;
+    }
+
+    .sp-services-container {
+        padding: 1rem;
+    }
+
+    .sp-info-group p {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}
+
+/* Prevent horizontal scrolling */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}

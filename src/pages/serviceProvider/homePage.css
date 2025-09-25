@@ -1,0 +1,769 @@
+.spsp-home-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.spsp-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #1a1a1a;
+  height: 60px;
+  box-sizing: border-box;
+}
+
+.spsp-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  /* Remove the transparent fill */
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.spsp-logo:hover {
+  transform: scale(1.05);
+}
+
+.spsp-logout-button {
+  background: transparent;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.spsp-logout-button:hover {
+  background: #FFD700;
+  color: #1a1a1a;
+}
+
+.spsp-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.spsp-welcome-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.spsp-welcome-section h1 {
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.spsp-welcome-section p {
+  color: #666;
+}
+
+.spsp-info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.spsp-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.spsp-card h3 {
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 0.5rem;
+}
+
+.spsp-card p {
+  margin: 0.5rem 0;
+  color: #444;
+}
+
+.spsp-services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.spsp-service-tag {
+  background: #FFD700;
+  color: #1a1a1a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.spsp-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+}
+
+.spsp-nav-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.spsp-nav-buttons .spsp-service-button {
+  background: transparent;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.spsp-nav-buttons .spsp-service-button:hover {
+  background: #FFD700;
+  color: #1a1a1a;
+}
+
+.spsp-edit-button {
+  background: transparent;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.spsp-edit-button:hover {
+  background: #FFD700;
+  color: #1a1a1a;
+}
+
+.spsp-edit-form {
+  padding: 1rem 0;
+}
+
+.spsp-form-group-2 {
+  margin-bottom: 1rem;
+}
+
+.spsp-form-group-2 label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.spsp-form-group-2 input,
+.spsp-form-group-2 select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.spsp-service-select,
+.spsp-days-select {
+  min-height: 120px;
+}
+
+.spsp-edit-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.spsp-save-button,
+.spsp-cancel-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.spsp-save-button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+}
+
+.spsp-save-button:hover {
+  background: #45a049;
+}
+
+.spsp-cancel-button {
+  background: #f44336;
+  color: white;
+  border: none;
+}
+
+.spsp-cancel-button:hover {
+  background: #d32f2f;
+}
+
+.spsp-form-group-2 input:focus,
+.spsp-form-group-2 select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.spsp-form-group-2 input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.spsp-form-group-2 input[type="number"]::-webkit-outer-spin-button,
+.spsp-form-group-2 input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.spsp-modal-button-1s {
+  display: flex;
+  gap: 1rem;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.spsp-accept-modal-button-1 {
+  background-color: #45a049;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.spsp-accept-modal-button-1:hover {
+  background-color: #45a049;
+}
+
+.spsp-close-modal-button-1 {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+}
+
+.spsp-close-modal-button-1:hover {
+  background-color: #333;
+}
+
+.spsp-checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.spsp-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spsp-checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #FFD700;
+}
+
+.spsp-checkbox-item label {
+  margin: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.spsp-checkbox-item:hover label {
+  color: #1a1a1a;
+}
+
+.spsp-notification-icon-1 {
+  color: #FFD700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.spsp-notification-icon-1:hover {
+  transform: scale(1.1);
+}
+
+.spsp-notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #f44336;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.spsp-notification-wrapper {
+  position: relative;
+}
+
+.spsp-notification-popup {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+
+.spsp-notification-header {
+  padding: 12px 16px;
+  background-color: #1a1a1a;
+  color: #FFD700;
+  font-weight: 600;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spsp-notification-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.spsp-notification-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.spsp-notification-item:hover {
+  background-color: #f8f8f8;
+}
+
+.spsp-notification-item.unread {
+  background-color: #f0f7ff;
+}
+
+.spsp-notification-item:last-child {
+  border-bottom: none;
+}
+
+.spsp-notification-content {
+  margin-bottom: 5px;
+  color: #1a1a1a;
+}
+
+.spsp-notification-content p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+.spsp-notification-time {
+  font-size: 12px;
+  color: #666;
+}
+
+.spsp-notification-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.spsp-reject-notification-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.spsp-reject-notification-button:hover {
+  background-color: #d32f2f;
+}
+
+.spsp-no-notifications {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+}
+
+.spsp-mark-all-read {
+  background: none;
+  border: none;
+  color: #FFD700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.spsp-mark-all-read:hover {
+  text-decoration: underline;
+}
+
+.spsp-time-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.spsp-time-input-wrapper .spsp-input-icon {
+  position: absolute;
+  left: 10px;
+  color: #FFD700;
+  z-index: 1;
+}
+
+.spsp-time-input-wrapper select {
+  padding-left: 35px;
+}
+
+
+.spsp-notification-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.spsp-view-notification-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.spsp-view-notification-button:hover {
+  background-color: #45a049;
+}
+
+.spsp-notification-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.spsp-notification-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spsp-notification-details h2 {
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.spsp-detail-group {
+  margin-bottom: 24px;
+}
+
+.spsp-detail-group h3 {
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.spsp-detail-group p {
+  margin: 8px 0;
+  color: #444;
+}
+
+/* Responsive styles with namespaced classes */
+
+/* Extra Large Devices (1200px and above) */
+@media (min-width: 1200px) {
+  .spsp-content {
+    padding: 3rem;
+  }
+
+  .spsp-info-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large Devices (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .spsp-content {
+    padding: 2.5rem;
+  }
+
+  .spsp-info-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Medium Devices (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .spsp-logo {
+    font-size: 1.8rem;
+  }
+
+  .spsp-content {
+    padding: 2rem;
+  }
+
+  .spsp-info-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Small Devices (576px to 767px) */
+@media (max-width: 767px) {
+  .spsp-navbar {
+    padding: 0.5rem 1rem;
+    flex-wrap: flex-end;
+  }
+
+  .spsp-logo {
+    font-size: 1.6rem;
+    margin-right: auto;
+  }
+
+  .spsp-nav-buttons {
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .spsp-service-button,
+  .spsp-edit-button,
+  .spsp-logout-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .spsp-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .spsp-info-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .spsp-notification-popup {
+    width: 280px;
+    right: -70px;
+  }
+
+  .spsp-checkbox-group {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .spsp-notification-modal {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .spsp-notification-wrapper {
+    position: static;
+    /* Change to static positioning on mobile */
+  }
+
+  .spsp-notification-popup {
+    width: 280px;
+    position: fixed;
+    /* Change to fixed positioning */
+    right: 10px;
+    /* Position from right edge of screen */
+    left: auto;
+    top: 60px;
+    /* Position from top */
+    z-index: 1500;
+    /* Ensure it's above other elements */
+  }
+}
+
+/* Extra Small Devices (Less than 576px) */
+@media (max-width: 575px) {
+  .spsp-navbar {
+    padding: 0.5rem;
+    justify-content: center;
+    height: auto;
+    min-height: 50px;
+  }
+
+  .spsp-logo {
+    display: none;
+  }
+
+  .spsp-nav-buttons {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 0.3rem;
+    margin-top: 0;
+  }
+
+  .spsp-service-button,
+  .spsp-edit-button,
+  .spsp-logout-button {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .spsp-welcome-section {
+    margin-bottom: 1rem;
+  }
+
+  .spsp-welcome-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .spsp-content {
+    padding: 1rem 0.5rem;
+  }
+
+  .spsp-card {
+    padding: 1rem;
+  }
+
+  .spsp-checkbox-group {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .spsp-edit-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .spsp-save-button,
+  .spsp-cancel-button {
+    width: 100%;
+  }
+
+  .spsp-notification-popup {
+    width: 250px;
+    max-height: 350px;
+    right: -20px;
+    /* Adjust to be more centered */
+    left: auto;
+  }
+
+  .spsp-modal-button-1s {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .spsp-notification-actions {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-end;
+  }
+
+  .spsp-notification-item {
+    padding: 8px;
+  }
+
+  .spsp-notification-icon-1 {
+    font-size: 1rem;
+  }
+
+  .spsp-notification-badge {
+    top: -5px;
+    right: -5px;
+    padding: 1px 4px;
+    font-size: 0.6rem;
+  }
+
+  .spsp-notification-popup {
+    width: 250px;
+    max-height: 350px;
+    position: fixed;
+    right: 10px;
+    /* Adjust position from right for better visibility */
+    left: auto;
+    top: 60px;
+  }
+}
+
+/* Fix for the navbar on very small devices */
+@media (max-width: 400px) {
+  .spsp-navbar {
+    padding: 0.5rem 0.3rem;
+  }
+
+  .spsp-logo {
+    margin-bottom: 0.5rem;
+  }
+
+  .spsp-nav-buttons {
+    gap: 0.2rem;
+  }
+
+  .spsp-service-button,
+  .spsp-edit-button,
+  .spsp-logout-button {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .spsp-notification-popup {
+    width: 220px;
+    right: 5px;
+    left: auto;
+  }
+}
