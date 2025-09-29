@@ -60,8 +60,19 @@ const AdminDashboard: React.FC = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1043);
   // Add state for logout confirmation dialog
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const [digitalTime, setDigitalTime] = useState<string>(() =>
+    new Date().toLocaleTimeString()
+  );
 
   // Handle window resize with updated breakpoint
+  useEffect(() => {
+    // digital clock updater
+    const tick = () => setDigitalTime(new Date().toLocaleTimeString());
+    const timerId = setInterval(tick, 1000);
+    return () => clearInterval(timerId);
+  }, []);
+
+  // Resize handler (kept in its own effect)
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth <= 1043;
@@ -462,15 +473,20 @@ const AdminDashboard: React.FC = () => {
               <h2>Welcome back, Administrator</h2>
               <p>Here's what's happening with your platform today.</p>
             </div>
-            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
               <AnalogClock size={86} />
-              <div className="ad-date-display">
-                {new Date().toLocaleDateString("en-US", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                <div className="ad-digital-clock" aria-hidden>
+                  {digitalTime}
+                </div>
+                <div className="ad-date-display">
+                  {new Date().toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </div>
               </div>
             </div>
           </div>
