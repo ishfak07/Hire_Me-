@@ -29,14 +29,6 @@ const FirstPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
-  // Digital clock state (for first page hero)
-  const [now, setNow] = useState<Date>(new Date());
-
-  useEffect(() => {
-    const t = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(t);
-  }, []);
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -65,11 +57,6 @@ At HireMe, we believe every problem has a fast, affordable fix.<br />
 Find skilled experts you can trust — no hassle, no waiting.<br />
 
           </p>
-          {/* Large digital clock for the first page */}
-          <div className="hero-clock">
-            <div className="hero-clock-time">{now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</div>
-            <div className="hero-clock-date">{now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</div>
-          </div>
           <div className="hero-cta">
             <motion.button 
               className="cta-button primary"

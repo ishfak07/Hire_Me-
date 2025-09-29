@@ -66,28 +66,6 @@
   margin-top: 3rem;
 }
 
-/* Large digital clock displayed on the first page hero */
-.hero-clock {
-  margin: 1.25rem auto 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.hero-clock-time {
-  font-size: 2.4rem; /* reduced from 4.5rem */
-  font-weight: 700;
-  color: var(--primary-color);
-  letter-spacing: 1px;
-  text-shadow: 0 3px 12px rgba(255,215,0,0.18);
-}
-
-.hero-clock-date {
-  font-size: 1rem;
-  color: var(--text-secondary);
-}
-
 .cta-button.primary {
   background: var(--primary-color);
   color: var(--background-dark);
@@ -373,8 +351,6 @@
   .hero-title {
     font-size: 3.5rem;
   }
-  .hero-clock-time { font-size: 2rem; }
-  .hero-clock-date { font-size: 0.95rem; }
 
   .service-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -411,9 +387,6 @@
   .service-card {
     padding: 1.5rem;
   }
-
-  .hero-clock-time { font-size: 1.6rem; }
-  .hero-clock-date { font-size: 0.85rem; }
 
   .service-icon {
     font-size: 2.5rem;

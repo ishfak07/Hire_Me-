@@ -22,6 +22,7 @@ import {
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
+import AnalogClock from "../../components/AnalogClock";
 
 const API_BASE_URL = "http://localhost:5000/api";
 
@@ -461,13 +462,16 @@ const AdminDashboard: React.FC = () => {
               <h2>Welcome back, Administrator</h2>
               <p>Here's what's happening with your platform today.</p>
             </div>
-            <div className="ad-date-display">
-              {new Date().toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+              <AnalogClock size={86} />
+              <div className="ad-date-display">
+                {new Date().toLocaleDateString("en-US", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </div>
             </div>
           </div>
 
