@@ -1632,5 +1632,20 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-    .ad-analog-clock { display:none; }
+    /* Keep analog clock visible on tablet/phone but reduce size via inline prop.
+       Previously this was hidden; that prevented the clock from showing. */
+    .ad-analog-clock { display: inline-flex; }
+}
+
+/* Digital clock styles (used in the admin header) */
+.ad-digital-clock {
+    font-family: var(--heading-font, 'Poppins', sans-serif);
+    font-weight: 600;
+    color: var(--primary-color, #f0c000);
+    background: rgba(0,0,0,0.25);
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    font-size: 0.95rem;
+    letter-spacing: 0.6px;
 }

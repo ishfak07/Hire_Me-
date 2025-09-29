@@ -27,10 +27,17 @@ const features = [
 
 const FirstPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [timeString, setTimeString] = useState<string>(() => new Date().toLocaleTimeString());
   const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
+  }, []);
+
+  useEffect(() => {
+    const t = () => setTimeString(new Date().toLocaleTimeString());
+    const id = setInterval(t, 1000);
+    return () => clearInterval(id);
   }, []);
 
   return (
@@ -66,6 +73,10 @@ Find skilled experts you can trust — no hassle, no waiting.<br />
             >
               Explore Services
             </motion.button>
+          </div>
+          {/* Digital clock placed under the CTA to match screenshot */}
+          <div className="hero-clock">
+            <div className="hero-digital-clock" aria-hidden>{timeString}</div>
           </div>
           
         </motion.div>
