@@ -27,17 +27,18 @@ const features = [
 
 const FirstPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [timeString, setTimeString] = useState<string>(() => new Date().toLocaleTimeString());
   const navigate = useNavigate();
+  const [digitalTime, setDigitalTime] = useState<string>(() =>
+    new Date().toLocaleTimeString()
+  );
 
   useEffect(() => {
-    setIsVisible(true);
+    const id = setInterval(() => setDigitalTime(new Date().toLocaleTimeString()), 1000);
+    return () => clearInterval(id);
   }, []);
 
   useEffect(() => {
-    const t = () => setTimeString(new Date().toLocaleTimeString());
-    const id = setInterval(t, 1000);
-    return () => clearInterval(id);
+    setIsVisible(true);
   }, []);
 
   return (
@@ -51,13 +52,18 @@ const FirstPage: React.FC = () => {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1 
-            className="hero-title"
-            animate={{ scale: [1, 1.02, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            Make Life Easier With Hire_Me
-          </motion.h1>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
+            <div className="hero-clock" aria-hidden>
+              {digitalTime}
+            </div>
+            <motion.h1 
+              className="hero-title"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Make Life Easier With Hire_Me
+            </motion.h1>
+          </div>
           <p className="hero-subtitle" style={{ textAlign: 'center' }}>
          
 At HireMe, we believe every problem has a fast, affordable fix.<br />
@@ -73,10 +79,6 @@ Find skilled experts you can trust — no hassle, no waiting.<br />
             >
               Explore Services
             </motion.button>
-          </div>
-          {/* Digital clock placed under the CTA to match screenshot */}
-          <div className="hero-clock">
-            <div className="hero-digital-clock" aria-hidden>{timeString}</div>
           </div>
           
         </motion.div>

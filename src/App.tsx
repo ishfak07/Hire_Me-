@@ -11,6 +11,7 @@ import AdminSettings from "./pages/admin/settings";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
 import FirstPage from "./pages/firstPage";
+import Landing from "./pages/Landing";
 import AllServiceProviders from "./pages/serviceNeeder/allServiceProviders";
 import BookService from "./pages/serviceNeeder/bookService";
 import ServiceNeederHomePage from "./pages/serviceNeeder/homePage";
@@ -28,7 +29,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<FirstPage />} />
+    <Route path="/" element={<Landing />} />
+    <Route path="/first" element={<FirstPage />} />
         <Route path="/user-type" element={<UserType />} />
         <Route
           path="/service-provider/register"

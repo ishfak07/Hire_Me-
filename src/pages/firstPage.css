@@ -50,6 +50,19 @@
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
+/* Hero digital clock */
+.hero-clock {
+  font-family: var(--heading-font, 'Poppins', sans-serif);
+  font-weight: 700;
+  color: #111;
+  background: linear-gradient(180deg, #ffd54d, #ffcf33);
+  padding: 8px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  font-size: 1.1rem;
+  letter-spacing: 0.6px;
+}
+
 
 .hero-subtitle {
   font-size: 1.8rem;
@@ -65,28 +78,6 @@
   justify-content: center;
   margin-top: 3rem;
 }
-
-/* Hero digital clock */
-.hero-clock {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-}
-.hero-digital-clock {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #ffdf3a; /* bright yellow */
-  text-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
-  padding: 0.4rem 1rem;
-  border-radius: 12px;
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,215,0,0.14);
-}
-
-@media (max-width: 768px) {
-  .hero-digital-clock { font-size: 2rem; }
-}
-
 
 .cta-button.primary {
   background: var(--primary-color);
@@ -372,6 +363,11 @@
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 3.5rem;
+  }
+
+  .hero-clock {
+    font-size: 1rem;
+    padding: 6px 10px;
   }
 
   .service-grid {
