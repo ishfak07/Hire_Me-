@@ -72,23 +72,7 @@ const UserType: React.FC = () => {
 
         
 
-        <div
-          className="userType-card"
-          onClick={() => handleUserTypeSelection("admin")}
-        >
-          <img
-            src="/admin.jpg"
-            alt="Admin Background"
-            className="card-background"
-          />
-          <div className="card-content">
-            <FaUserShield className="userType-icon" />
-            <h2 className="userType-title">Admin</h2>
-            <p className="userType-description">
-              Manage the platform and oversee service operations.
-            </p>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
