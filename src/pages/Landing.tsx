@@ -9,20 +9,20 @@ const Landing: React.FC = () => {
     <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <div style={{ textAlign: 'center' }}>
         <h1 style={{ fontSize: '4rem', color: 'var(--primary-color)' }}>Welcome</h1>
-        <button
-          className="cta-button primary"
-          onClick={() => navigate('/first')}
-          style={{ marginTop: '2rem' }}
-        >
-          Enter to HireMe
-        </button>
-        <button
-          className="cta-button primary"
-          onClick={() => navigate('/admin')}
-          style={{ marginTop: '2rem' }}
-        >
-          Enter to addmin login
-        </button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem', alignItems: 'center' }}>
+          <button
+            className="cta-button primary"
+            onClick={() => navigate('/first')}
+          >
+            Enter to HireMe
+          </button>
+          <button
+            className="cta-button primary"
+            onClick={() => navigate('/admin')}
+          >
+            Enter to addmin login
+          </button>
+        </div>
       </div>
     </div>
   );
