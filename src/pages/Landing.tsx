@@ -8,7 +8,7 @@ const Landing: React.FC = () => {
   return (
     <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <div style={{ textAlign: 'center' }}>
-        <h1 style={{ fontSize: '4rem', color: 'var(--primary-color)' }}>Welcome to</h1>
+        <h1 style={{ fontSize: '4rem', color: 'var(--primary-color)' }}>Welcome to t</h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem', alignItems: 'center' }}>
           <button
             className="cta-button primary"
